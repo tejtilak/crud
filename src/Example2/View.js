@@ -48,7 +48,7 @@ const View = () => {
                     </ul>
                 </div>
             </div>
-            )
+            
         </div>
     )
 }
