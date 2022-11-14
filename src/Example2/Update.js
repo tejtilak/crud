@@ -37,7 +37,7 @@ const Update = () => {
             <div className="container">
                 <div className="w-75 mx-auto shadow p-5">
                     <h2 className="text-center mb-4">Update A User</h2>
-                    <h1>Added....</h1>
+                    <h1>Edit....</h1>
                     <center>
                         <form onSubmit={submit}>
                             <div class="form-group">

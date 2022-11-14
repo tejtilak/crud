@@ -39,7 +39,8 @@ const View = () => {
                                 <>
                                     <li className="list-group-item">First Name:{name.firstName}</li>
                                 </>
-                            )}
+                            )
+                        }
 
                         <li className="list-group-item">Last Name:{name.lastName}</li>
                         <li className="list-group-item">Phone Number:{name.phoneNo}</li>
