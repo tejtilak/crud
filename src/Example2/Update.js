@@ -1,8 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Update = () => {
+    const notify = () => toast.success('Upated succussfull');
+
     let navigate = useNavigate();
     const { id } = useParams();
     const [name, setName] = useState({
@@ -19,7 +23,7 @@ const Update = () => {
 
     useEffect(() => {
         userName();
-    },[])
+    }, [])
 
     const userName = async () => {
         const result = await axios.get(`http://localhost:5002/name/${id}`)
@@ -29,8 +33,8 @@ const Update = () => {
     const submit = async (e) => {
         e.preventDefault()
         await axios.put(`http://localhost:5002/name/${id}`, name);
-        alert('updated successfully')
-        navigate('/')
+        // alert('updated successfully')
+        // navigate('/')
     }
     return (
         <div>
@@ -54,13 +58,16 @@ const Update = () => {
                                 <input type="text" class="form-control" placeholder="phoneNo" name='phoneNo' value={phoneNo} onChange={change} />
                             </div>
 
-                            <button className="btn btn-primary btn-block form">Update a User</button>
+                            <button className="btn btn-primary btn-block form" onClick={notify}>Update a User</button>
                         </form>
                     </center>
                 </div>
             </div>
+
+            <ToastContainer />
+
         </div>
     )
 }
 
-export default Update
+export default Update;
